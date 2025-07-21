@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Advanced PDF to Markdown/HTML Converter focused on readability preservation
+Advanced PDF to Markdown/HTML/Text Converter focused on readability preservation
 
 This script offers multiple conversion strategies:
 1. pdfplumber - Superior text extraction and layout analysis
@@ -17,6 +17,23 @@ Optional (for best results):
 
 Usage:
     python pdf_converter.py [input_directory] [output_directory] --method [pdfplumber|pymupdf4llm|hybrid|marker]
+
+Output Structure:
+```
+output_directory/
+├── markdown/
+│   ├── document1.md
+│   ├── document2.md
+│   └── ...
+├── html/
+│   ├── document1.html
+│   ├── document2.html
+│   └── ...
+└── text/
+    ├── document1.txt
+    ├── document2.txt
+    └── ...
+```
 """
 
 import os
@@ -69,9 +86,11 @@ class AdvancedPDFConverter:
         # Create output directories
         self.markdown_dir = self.output_dir / 'markdown'
         self.html_dir = self.output_dir / 'html'
+        self.text_dir = self.output_dir / 'text'
 
         self.markdown_dir.mkdir(parents=True, exist_ok=True)
         self.html_dir.mkdir(parents=True, exist_ok=True)
+        self.text_dir.mkdir(parents=True, exist_ok=True)
 
         # Initialize marker models if using marker method
         if method == 'marker' and HAS_MARKER:
@@ -398,6 +417,62 @@ class AdvancedPDFConverter:
 
         return "\n".join(markdown_lines)
 
+    def markdown_to_text(self, markdown_content: str) -> str:
+        """Convert markdown to clean plain text"""
+        if not markdown_content:
+            return ""
+
+        # Remove markdown syntax while preserving structure
+        text = markdown_content
+
+        # Convert headers to plain text with spacing
+        text = re.sub(r'^#{1,6}\s+(.+)$', r'\1', text, flags=re.MULTILINE)
+
+        # Convert lists to plain text
+        text = re.sub(r'^[-*+]\s+(.+)$', r'• \1', text, flags=re.MULTILINE)
+        text = re.sub(r'^\d+\.\s+(.+)$', r'\1', text, flags=re.MULTILINE)
+
+        # Remove bold and italic formatting
+        text = re.sub(r'\*\*([^*]+)\*\*', r'\1', text)  # Bold
+        text = re.sub(r'\*([^*]+)\*', r'\1', text)      # Italic
+        text = re.sub(r'__([^_]+)__', r'\1', text)      # Bold alternative
+        text = re.sub(r'_([^_]+)_', r'\1', text)        # Italic alternative
+
+        # Convert tables to plain text
+        lines = text.split('\n')
+        cleaned_lines = []
+
+        for line in lines:
+            # Skip table separator lines
+            if re.match(r'^\|[\s\-\|]+\|$', line.strip()):
+                continue
+
+            # Convert table rows to plain text
+            if line.strip().startswith('|') and line.strip().endswith('|'):
+                # Remove table markup and clean up spacing
+                cells = [cell.strip() for cell in line.split('|')[1:-1]]
+                if cells and any(cell for cell in cells):
+                    cleaned_lines.append('  '.join(cell for cell in cells if cell))
+                continue
+
+            # Remove other markdown syntax
+            line = re.sub(r'^\>\s+', '', line)  # Blockquotes
+            line = re.sub(r'`([^`]+)`', r'\1', line)  # Inline code
+            line = re.sub(r'```[\s\S]*?```', '', line)  # Code blocks
+            line = re.sub(r'\[([^\]]+)\]\([^)]+\)', r'\1', line)  # Links
+
+            cleaned_lines.append(line)
+
+        # Join lines and clean up excessive whitespace
+        text = '\n'.join(cleaned_lines)
+
+        # Normalize whitespace
+        text = re.sub(r'\n{3,}', '\n\n', text)  # Max 2 consecutive newlines
+        text = re.sub(r'[ \t]+', ' ', text)     # Multiple spaces to single space
+        text = text.strip()
+
+        return text
+
     def create_html_from_markdown(self, markdown_content: str, title: str) -> str:
         """Convert markdown to well-styled HTML"""
         html_content = markdown.markdown(
@@ -486,6 +561,17 @@ class AdvancedPDFConverter:
             logger.error(f"Error writing Markdown: {e}")
             return False
 
+        # Save Plain Text
+        text_content = self.markdown_to_text(content)
+        text_file = self.text_dir / f"{pdf_name}.txt"
+        try:
+            with open(text_file, 'w', encoding='utf-8') as f:
+                f.write(text_content)
+            logger.info(f"Created: {text_file}")
+        except Exception as e:
+            logger.error(f"Error writing plain text: {e}")
+            return False
+
         # Save HTML
         html_content = self.create_html_from_markdown(content, pdf_name)
         html_file = self.html_dir / f"{pdf_name}.html"
@@ -518,7 +604,7 @@ class AdvancedPDFConverter:
         logger.info(f"Successfully converted {successful}/{len(pdf_files)} files")
 
 def main():
-    parser = argparse.ArgumentParser(description='Advanced PDF to Markdown/HTML converter')
+    parser = argparse.ArgumentParser(description='Advanced PDF to Markdown/HTML/Text converter')
     parser.add_argument('input_dir', nargs='?', default='.',
                        help='Input directory (default: current directory)')
     parser.add_argument('output_dir', nargs='?', default='./converted',
