@@ -1,0 +1,135 @@
+DCL-25-03
+
+UNITED STATES DEPARTMENT OF EDUCATION
+
+OFFICE OF SPECIAL EDUCATION AND REHABILITATIVE SERVICES
+REHABILITATION SERVICES ADMINISTRATION
+COMMISSIONER
+
+Date: July 17, 2025
+DCL-25-03
+
+Dear Colleagues:
+
+In alignment with President Trump’s Executive Order 14168: Defending Women From Gender
+Ideology Extremism and Restoring Biological Truth to the Federal Government (January 20,
+2025), the Office of Management and Budget (OMB) approved non-substantive change requests
+to three information collection requests managed by the Rehabilitation Services Administration
+• (RSA) on June 5, 2025. These changes apply to the annual performance reports for the following
+RSA formula grant programs:
+
+• • Independent Living Services for Older Individuals Who Are Blind;
+• • Client Assistance Program; and
+• • Protection and Advocacy of Individual Rights
+
+Attached are the details of changes related to the collection and reporting of the sex of
+individuals served by these programs. Data collection in alignment with these changes will begin
+October 1, 2025; data reporting in alignment with these changes will occur following the
+conclusion of Federal fiscal year 2026 (i.e., October 1, 2026, through December 31, 2026).
+
+If you have any questions, please contact the appropriate RSA Project Officer:
+
+• • IL-OIB: Zunaira.Wasif@ed.gov
+• • CAP: April.Trice@ed.gov
+• • PAIR: Samuel.Pierre@ed.gov
+
+Thank you for your continued partnership in administering these programs.
+
+Sincerely,
+
+Christopher Pope
+Director, State Monitoring and Program Improvement Division,
+delegated the authority to perform the functions and
+duties of the Commissioner
+
+Attachment I: Description of Changes
+
+400 MARYLAND AVE. S.W., WASHINGTON, DC 20202-2600
+www.ed.gov
+The Department of Education’s mission is to promote student achievement and preparation for global competitiveness
+by fostering educational excellence and ensuring equal access.
+
+---
+Page 2
+
+Attachment I: Description of Changes
+
+These instructions update the collection of data regarding the sex of individuals served, as detailed in the following table:
+
+OMB RSA Title Prior ICR Reporting Requirements ICR Reporting Requirements Effective in FFY 2026
+Control #
+
+1820-0608 Independent Living Part III: Data on Individuals Served: C. Gender Part III: Data on Individuals Served: C. Sex
+Services for Older
+Individuals Who are 1.Individual self-identifies as female 1.Female
+Blind Annual 2.Individual self-identifies as male 2.Male
+Performance Report 3.Individuals who did not self-identify gender 3.Unknown
+(7-OB)
+1820-0528 Client Assistance Part III. Program Data B. Gender Part III. Program Data B. Sex
+Program Annual
+Performance Report 1.Females 1.Females
+(RSA-227) 2.Males 2.Males
+3.Nonbinary or Another Gender 3.Unknown
+4.Unknown
+
+Instructions Instructions
+
+Gender: Enter the number of individuals served according Sex: Enter the number of individuals served according to their
+to their gender. Do not count an individual more than sex. Do not count an individual more than once.
+once.
+
+1820-0627 Protection and Part III. Statistical Information of Individuals Served: Part III. Statistical Information of Individuals Served
+Advocacy of B.Gender of Individuals Served B.Sex of Individuals Served
+Individual Rights
+• (PAIR) Annual 1.Females 1.Females
+Performance Report 2.Males 2.Males
+(RSA-509) 3.Nonbinary or another gender 3.Unknown
+4.Unknown
+
+| OMB
+Control # | RSA Title | Prior ICR Reporting Requirements | ICR Reporting Requirements Effective in FFY 2026 |
+| 1820-0608 | Independent Living
+Services for Older
+Individuals Who are
+Blind Annual
+Performance Report
+(7-OB) | Part III: Data on Individuals Served: C. Gender
+1.Individual self-identifies as female
+2.Individual self-identifies as male
+3.Individuals who did not self-identify gender | Part III: Data on Individuals Served: C. Sex
+1.Female
+2.Male
+3.Unknown |
+| 1820-0528 | Client Assistance
+Program Annual
+Performance Report
+(RSA-227) | Part III. Program Data B. Gender
+1.Females
+2.Males
+3.Nonbinary or Another Gender
+4.Unknown
+Instructions
+Gender: Enter the number of individuals served according
+to their gender. Do not count an individual more than
+once. | Part III. Program Data B. Sex
+1.Females
+2.Males
+3.Unknown
+Instructions
+Sex: Enter the number of individuals served according to their
+sex. Do not count an individual more than once. |
+| 1820-0627 | Protection and
+Advocacy of
+Individual Rights
+(PAIR) Annual
+Performance Report
+(RSA-509) | Part III. Statistical Information of Individuals Served:
+B.Gender of Individuals Served
+1.Females
+2.Males
+3.Nonbinary or another gender
+4.Unknown | Part III. Statistical Information of Individuals Served
+B.Sex of Individuals Served
+1.Females
+2.Males
+3.Unknown |
